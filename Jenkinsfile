@@ -17,9 +17,12 @@ pipeline {
                     credentialsId: 'git',
                     url: 'https://github.com/amitkshatriya01/selenium.git'
                     sh 'mvn test'
-                    withSonarQubeEnv(installationName: 'sonar') {
-                        sh 'mvn clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
-                    }
+                    // withSonarQubeEnv(installationName: 'sonar') {
+                    //     sh 'mvn clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+                    // }
+                }
+                withSonarQubeEnv(installationName: 'sonar') {
+                    sh 'sonar-scanner -Dsonar.testExecutionReportPaths=/target/results.xml'
                 }
             }
         }
