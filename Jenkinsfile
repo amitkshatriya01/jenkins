@@ -22,7 +22,7 @@ pipeline {
                     // }
                 }
                 withSonarQubeEnv(installationName: 'sonar') {
-                    sh 'mvn clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar -Dsonar.testExecutionReportPaths=/target/results.xml'
+                    sh 'sonar-scanner -Dsonar.testExecutionReportPaths=/target/results.xml'
                 }
             }
         }
