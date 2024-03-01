@@ -16,6 +16,7 @@ pipeline {
                     git branch: "main",
                     credentialsId: 'git',
                     url: 'https://github.com/amitkshatriya01/selenium.git'
+                    sh 'mvn test'
                 }
             }
         }
