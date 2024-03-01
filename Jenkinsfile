@@ -22,7 +22,7 @@ pipeline {
                     // }
                 }
                 withSonarQubeEnv(installationName: 'sonar') {
-                    sh 'sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.testExecutionReportPaths=/target/results.xml'
+                    sh 'sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.junit.testExecutionReportPaths=/target/results.xml'
                 }
             }
         }

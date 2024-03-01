@@ -1,14 +1,6 @@
-<testExecutions version="1">
-  <file path="testx/ClassOneTest.xoo">
-	<testCase name="test1" duration="5"/>
-	<testCase name="test2" duration="500">
-	  <skipped/>
-	</testCase>
-	<testCase name="test3" duration="100">
-	  <failure/>
-	</testCase>
-	<testCase name="test4" duration="500">
-	  <error/>
-	</testCase>
-  </file>
-</testExecutions>
+<?xml version="1.0" ?>
+<testsuites>
+    <testsuite errors="0" failures="0" id="0" name="my test suite" tests="1">
+        <testcase classname="some.class.name" name="Test1" time="123.345000"/>
+    </testsuite>
+</testsuites>
