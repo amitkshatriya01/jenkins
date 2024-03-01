@@ -18,8 +18,8 @@ pipeline {
                     url: 'https://github.com/amitkshatriya01/selenium.git'
                     sh 'mvn test'
                 }
-                withSonarQubeEnv('http://localhost:9000') {
-                    sh 'mvn clean package sonar:sonar'
+                withSonarQubeEnv(installationName: 'sonar') {
+                    sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
               }
             }
         }
