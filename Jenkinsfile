@@ -9,11 +9,6 @@ pipeline {
         }
         stage('Test') {
             steps {
-              withSonarQubeEnv('http://localhost:9000') {
-                sh 'mvn clean package sonar:sonar'
-              }
-            }
-            steps {
                 echo 'Testing..'
                 sh 'mkdir -p Selenium'
                 dir("Selenium")
@@ -23,6 +18,9 @@ pipeline {
                     url: 'https://github.com/amitkshatriya01/selenium.git'
                     sh 'mvn test'
                 }
+                withSonarQubeEnv('http://localhost:9000') {
+                    sh 'mvn clean package sonar:sonar'
+              }
             }
         }
     }
